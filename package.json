@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "@umijs/preset-ui": "^2.2.9"
+  },
+  "dependencies": {
+    "@ant-design/pro-components": "^2.8.7"
+  }
+}
