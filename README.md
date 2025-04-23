@@ -1,5 +1,7 @@
 # Ticket Booking System
 
+安徽理工大学信息安全23-1王智杰
+
 ## 项目概述
 
 Ticket Booking 是一个基于 Ant Design Pro 的票务预订系统，提供了用户登录、规则管理等功能。项目集成了国际化支持、Mock 数据服务等，方便开发和测试。
