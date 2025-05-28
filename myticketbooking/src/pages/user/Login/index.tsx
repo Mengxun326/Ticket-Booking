@@ -19,6 +19,7 @@ import { Alert, message, Tabs } from 'antd';
 import React, { useState } from 'react';
 import { history, useModel } from 'umi';
 import styles from './index.less';
+import {SYSTEM_LOGO} from "@/constant";
 const LoginMessage: React.FC<{
   content: string;
 }> = ({ content }) => (
@@ -77,9 +78,9 @@ const Login: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <LoginForm
-          logo={<img alt="logo" src="/logo.svg" />}
-          title="Ant Design"
-          subTitle={'Ant Design 是西湖区最具影响力的 Web 设计规范'}
+          logo={<img alt="logo" src={SYSTEM_LOGO} />}
+          title="信安 航空"
+          subTitle={<a href={"https://github.com/Mengxun326"} target="_blank" rel="noreferrer">全淮南最具影响力的机场 </a>}
           initialValues={{
             autoLogin: true,
           }}
@@ -95,11 +96,10 @@ const Login: React.FC = () => {
         >
           <Tabs activeKey={type} onChange={setType}>
             <Tabs.TabPane key="account" tab={'账户密码登录'} />
-            <Tabs.TabPane key="mobile" tab={'手机号登录'} />
           </Tabs>
 
           {status === 'error' && loginType === 'account' && (
-            <LoginMessage content={'错误的用户名和密码(admin/ant.design)'} />
+            <LoginMessage content={'错误的账户和密码'} />
           )}
           {type === 'account' && (
             <>
@@ -109,11 +109,11 @@ const Login: React.FC = () => {
                   size: 'large',
                   prefix: <UserOutlined className={styles.prefixIcon} />,
                 }}
-                placeholder={'用户名: admin or user'}
+                placeholder={'请输入账户'}
                 rules={[
                   {
                     required: true,
-                    message: '用户名是必填项！',
+                    message: '账户是必填项！',
                   },
                 ]}
               />
@@ -181,7 +181,7 @@ const Login: React.FC = () => {
                   const result = await getFakeCaptcha({
                     phone,
                   });
-                  if (result === false) {
+                  if (!result || result.status === 'error') {
                     return;
                   }
                   message.success('获取验证码成功！验证码为：1234');
