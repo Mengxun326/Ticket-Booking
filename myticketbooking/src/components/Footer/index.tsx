@@ -1,28 +1,28 @@
 import { GithubOutlined } from '@ant-design/icons';
 import { DefaultFooter } from '@ant-design/pro-components';
 const Footer: React.FC = () => {
-  const defaultMessage = '蚂蚁集团体验技术部出品';
+  const defaultMessage = '信安航空出品';
   const currentYear = new Date().getFullYear();
   return (
     <DefaultFooter
       copyright={`${currentYear} ${defaultMessage}`}
       links={[
         {
-          key: 'Ant Design Pro',
-          title: 'Ant Design Pro',
-          href: 'https://pro.ant.design',
+          key: 'Blog',
+          title: '梦寻の博客',
+          href: 'https://www.meng-xun.top',
+          blankTarget: true,
+        },
+        {
+          key: 'AUST',
+          title: '安徽理工大学',
+          href: 'https://www.aust.edu.cn/',
           blankTarget: true,
         },
         {
           key: 'github',
-          title: <GithubOutlined />,
-          href: 'https://github.com/ant-design/ant-design-pro',
-          blankTarget: true,
-        },
-        {
-          key: 'Ant Design',
-          title: 'Ant Design',
-          href: 'https://ant.design',
+          title: <><GithubOutlined />梦寻 GitHub</>,
+          href: 'https://github.com/Mengxun326',
           blankTarget: true,
         },
       ]}
